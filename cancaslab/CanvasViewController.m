@@ -48,24 +48,17 @@
         NSLog(@"Gesture began at: %f, %f", point.x, point.y);
         self.trayOriginalCenter = self.trayView.center;
     } else if (self.panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        NSLog(@"Gesture changed at: %f, %f", point.x, point.y);
         self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + point.y);
     } else if (self.panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         NSLog(@"Gesture ended at: %f, %f", point.x, point.y);
         CGPoint velocity = [sender velocityInView:self.trayView];
-
-            NSLog(@"droppeding");
         float newY = 0;
         if (velocity.y > 0) { // Going down
             newY = self.trayOriginalCenter.y + self.trayClosePositionY;
             
 
         } else { // Going up
-//                    self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + self.trayOpenPositionY);
             newY = self.trayOriginalCenter.y + self.trayOpenPositionY;
-            
-            
-            
         }
         
         [UIView animateWithDuration:1 delay:0
@@ -75,18 +68,29 @@
                                 [self.trayView layoutIfNeeded];
                             } completion:nil];
     }
+}
+
+- (IBAction)onFacePanGesture:(UIPanGestureRecognizer *)sender {
+    NSLog(@"state: %ld", sender.state);
+        CGPoint point = [sender translationInView:self.trayView];
     
-    /*
-    var point = self.panGestureRecognizer.locationInView(view)
-    var velocity = panGestureRecognizer.velocityInView(view)
-    
-    if panGestureRecognizer.state == UIGestureRecognizerState.Began {
-        println("Gesture began at: \(point)")
-    } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
-        println("Gesture changed at: \(point)")
-    } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
-        println("Gesture ended at: \(point)")
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"Gesture began");
+
+        UIImageView *imageView = (UIImageView *)sender.view;
+        self.newlyCreatedFace = [[UIImageView alloc] initWithImage:imageView.image];
+        [_whiteView addSubview:_newlyCreatedFace];
+        self.newlyCreatedFace.center = CGPointMake(imageView.center.x, imageView.center.y + self.trayView.frame.origin.y);
+                self.faceOrigininalCenter = self.newlyCreatedFace.center;
+    } else if (sender.state == UIGestureRecognizerStateChanged) {
+                NSLog(@"Gesture changed");
+                self.newlyCreatedFace.center = CGPointMake(self.faceOrigininalCenter.x + point.x, self.faceOrigininalCenter.y + point.y);
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"Gesture ended");
+
+        self.newlyCreatedFace.center = CGPointMake(self.faceOrigininalCenter.x + point.x, self.faceOrigininalCenter.y + point.y);
+
     }
-     */
+
 }
 @end
