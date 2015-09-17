@@ -15,6 +15,8 @@
 @implementation CanvasViewController
 
 - (void)viewDidLoad {
+    self.trayOpenPositionY = -187;
+    self.trayClosePositionY = 187;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -40,16 +42,26 @@
 //    NSLog(@"panning the tray, %ld", (long)self.panGestureRecognizer.state);
     
     
-    CGPoint point = [self.panGestureRecognizer translationInView:self.trayView];
+    CGPoint point = [sender translationInView:self.trayView];
     
     if (self.panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"Gesture began at: %f, %f", point.x, point.y);
         self.trayOriginalCenter = self.trayView.center;
     } else if (self.panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        NSLog(@"Gesture changed at: \(point)");
+        NSLog(@"Gesture changed at: %f, %f", point.x, point.y);
         self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + point.y);
-    } else if (self.panGestureRecognizer.state == UIGestureRecognizerStateEnde  d) {
-        NSLog(@"Gesture ended at: \(point)");
+    } else if (self.panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"Gesture ended at: %f, %f", point.x, point.y);
+        CGPoint velocity = [sender velocityInView:self.trayView];
+
+            NSLog(@"droppeding");
+        if (velocity.y > 0) { // Going down
+                                self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + self.trayClosePositionY);
+
+        } else { // Going up
+                    self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + self.trayOpenPositionY);
+            
+        }
     }
     
     /*

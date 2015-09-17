@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIView *trayView;
 - (IBAction)onTrayPanGesture:(UIPanGestureRecognizer *)sender;
 @property CGPoint trayOriginalCenter;
+@property float trayOpenPositionY;
+@property float trayClosePositionY;
 @property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;
 @end
