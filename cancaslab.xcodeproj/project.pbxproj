@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		F953B5641BAB4D4D00A2CFF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F953B5631BAB4D4D00A2CFF3 /* main.m */; };
 		F953B5671BAB4D4D00A2CFF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F953B5661BAB4D4D00A2CFF3 /* AppDelegate.m */; };
-		F953B56A1BAB4D4D00A2CFF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F953B5691BAB4D4D00A2CFF3 /* ViewController.m */; };
 		F953B56D1BAB4D4D00A2CFF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F953B56B1BAB4D4D00A2CFF3 /* Main.storyboard */; };
 		F953B56F1BAB4D4D00A2CFF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F953B56E1BAB4D4D00A2CFF3 /* Assets.xcassets */; };
 		F953B5721BAB4D4D00A2CFF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F953B5701BAB4D4D00A2CFF3 /* LaunchScreen.storyboard */; };
 		F953B57D1BAB4D4D00A2CFF3 /* cancaslabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F953B57C1BAB4D4D00A2CFF3 /* cancaslabTests.m */; };
 		F953B5881BAB4D4D00A2CFF3 /* cancaslabUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F953B5871BAB4D4D00A2CFF3 /* cancaslabUITests.m */; };
+		F953B59A1BAB51D800A2CFF3 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F953B5991BAB51D800A2CFF3 /* CanvasViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		F953B5631BAB4D4D00A2CFF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F953B5651BAB4D4D00A2CFF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F953B5661BAB4D4D00A2CFF3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F953B5681BAB4D4D00A2CFF3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F953B5691BAB4D4D00A2CFF3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F953B56C1BAB4D4D00A2CFF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F953B56E1BAB4D4D00A2CFF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F953B5711BAB4D4D00A2CFF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		F953B5831BAB4D4D00A2CFF3 /* cancaslabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cancaslabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F953B5871BAB4D4D00A2CFF3 /* cancaslabUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cancaslabUITests.m; sourceTree = "<group>"; };
 		F953B5891BAB4D4D00A2CFF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F953B5981BAB51D800A2CFF3 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		F953B5991BAB51D800A2CFF3 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +103,13 @@
 			children = (
 				F953B5651BAB4D4D00A2CFF3 /* AppDelegate.h */,
 				F953B5661BAB4D4D00A2CFF3 /* AppDelegate.m */,
-				F953B5681BAB4D4D00A2CFF3 /* ViewController.h */,
-				F953B5691BAB4D4D00A2CFF3 /* ViewController.m */,
 				F953B56B1BAB4D4D00A2CFF3 /* Main.storyboard */,
 				F953B56E1BAB4D4D00A2CFF3 /* Assets.xcassets */,
 				F953B5701BAB4D4D00A2CFF3 /* LaunchScreen.storyboard */,
 				F953B5731BAB4D4D00A2CFF3 /* Info.plist */,
 				F953B5621BAB4D4D00A2CFF3 /* Supporting Files */,
+				F953B5981BAB51D800A2CFF3 /* CanvasViewController.h */,
+				F953B5991BAB51D800A2CFF3 /* CanvasViewController.m */,
 			);
 			path = cancaslab;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F953B56A1BAB4D4D00A2CFF3 /* ViewController.m in Sources */,
+				F953B59A1BAB51D800A2CFF3 /* CanvasViewController.m in Sources */,
 				F953B5671BAB4D4D00A2CFF3 /* AppDelegate.m in Sources */,
 				F953B5641BAB4D4D00A2CFF3 /* main.m in Sources */,
 			);
