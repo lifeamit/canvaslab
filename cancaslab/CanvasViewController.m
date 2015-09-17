@@ -55,13 +55,25 @@
         CGPoint velocity = [sender velocityInView:self.trayView];
 
             NSLog(@"droppeding");
+        float newY = 0;
         if (velocity.y > 0) { // Going down
-                                self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + self.trayClosePositionY);
+            newY = self.trayOriginalCenter.y + self.trayClosePositionY;
+            
 
         } else { // Going up
-                    self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + self.trayOpenPositionY);
+//                    self.trayView.center = CGPointMake(self.trayOriginalCenter.x, self.trayOriginalCenter.y + self.trayOpenPositionY);
+            newY = self.trayOriginalCenter.y + self.trayOpenPositionY;
+            
+            
             
         }
+        
+        [UIView animateWithDuration:1 delay:0
+             usingSpringWithDamping:0.2 initialSpringVelocity:0.0f
+                            options:0 animations:^{
+                                self.trayView.center = CGPointMake(self.trayOriginalCenter.x, newY);
+                                [self.trayView layoutIfNeeded];
+                            } completion:nil];
     }
     
     /*
